@@ -1,24 +1,39 @@
 # MarvelCharacters_Test_for_Schibsted_Anton_Syzko
 test for Schinsted Marvel Api Characters Report
 
-Approaches 
- 1 - Rest call Parsing JSON using Gson - chunks of 100 ( limit by Marvel API ) -> offset ++100 till the end
-     storing data  objects to MongoDB Collection ( read and write for 1485 Objects made faster )
-     Two controllers 
-        * - Mongo Loader Component to parse json calls and store data to DB 
-        * - Mongo Report Component to retrieve data for the very report
-     Same  behaviour is available  in monoController
+Prerequisites 
+install mongodb 
+start mongodb 
+
+Dependencies  required 
+ - commons-codec 1.9
+ - com.google.code.gson 2.7
+ - org.mongodb 2.11.0
+ - org.springframework.data 1.2.0 RELEASE
+ - commons-collections 3.2.1
+ - com.github.jsimone  webapp-runner 8.0.30.2
+ - org.json 20150729
+ - org.codehaus.jackson 1.9.13 
+ 
+
+Approaches </br>
+ 1 - Rest call Parsing JSON using Gson - chunks of 100 ( limit by Marvel API ) -> offset ++100 till the end</br>
+     storing data  objects to MongoDB Collection ( read and write for 1485 Objects made faster )</br>
+     Two controllers </br>
+        * - Mongo Loader Component to parse json calls and store data to DB </br>
+        * - Mongo Report Component to retrieve data for the very report</br>
+     Same  behaviour is available  in monoController</br>
         
- 2 - Mono Controller - rest call parsing json   using Gson  - chunks  of 100 -> offset ++ 100 till the end
-     storing data objects in LRUMap for  cache  management ( base case LinkedHasMap ) - each rest call adds new Map to main storage
-     retrieving data from Map for reporting 
+ 2 - Mono Controller - rest call parsing json   using Gson  - chunks  of 100 -> offset ++ 100 till the end</br>
+     storing data objects in LRUMap for  cache  management ( base case LinkedHasMap ) - each rest call adds new Map to main storage </br>
+     retrieving data from Map for reporting </br>
      
- 3 - functional cut through approach - all in one  class  as  we  go - storing data in chunks of 55 ( total 1485 MOD 55 = 0 )
-     Storage ArrayList - load / report
+ 3 - functional cut through approach - all in one  class  as  we  go - storing data in chunks of 55 ( total 1485 MOD 55 = 0 ) </br>
+     Storage ArrayList - load / report   </br>
      
  Future Updates Storage 
-   - storing data to .json file for local cache ( file )
-   - concurrent approach using ExecutorsService with Runnable interfaces - for retrieving data in separate threads for each rest call
+   - storing data to .json file for local cache ( file )  </br>
+   - concurrent approach using ExecutorsService with Runnable interfaces - for retrieving data in separate threads for each rest call  </br>
    
      
      
