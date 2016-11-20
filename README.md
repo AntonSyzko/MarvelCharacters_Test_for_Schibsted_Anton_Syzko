@@ -2,18 +2,18 @@
 test for Schinsted Marvel Api Characters Report
 
 Prerequisites 
-install mongodb 
-start mongodb 
+install mongodb  </br>
+start mongodb </br>
 
-Dependencies  required 
- - commons-codec 1.9
- - com.google.code.gson 2.7
- - org.mongodb 2.11.0
- - org.springframework.data 1.2.0 RELEASE
- - commons-collections 3.2.1
- - com.github.jsimone  webapp-runner 8.0.30.2
- - org.json 20150729
- - org.codehaus.jackson 1.9.13 
+Dependencies  required </br>
+ - commons-codec 1.9</br>
+ - com.google.code.gson 2.7</br>
+ - org.mongodb 2.11.0</br>
+ - org.springframework.data 1.2.0 RELEASE</br>
+ - commons-collections 3.2.1</br>
+ - com.github.jsimone  webapp-runner 8.0.30.2</br>
+ - org.json 20150729</br>
+ - org.codehaus.jackson 1.9.13 </br>
  
 
 Approaches </br>
@@ -31,7 +31,7 @@ Approaches </br>
  3 - functional cut through approach - all in one  class  as  we  go - storing data in chunks of 55 ( total 1485 MOD 55 = 0 ) </br>
      Storage ArrayList - load / report   </br>
      
- Future Updates Storage 
+ Future Updates Storage </br>
    - storing data to .json file for local cache ( file )  </br>
    - concurrent approach using ExecutorsService with Runnable interfaces - for retrieving data in separate threads for each rest call  </br>
    
